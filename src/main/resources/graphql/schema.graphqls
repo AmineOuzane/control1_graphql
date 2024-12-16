@@ -1,0 +1,30 @@
+type Livre {
+    id : ID
+    titre : String
+    prix : Float
+    auteur : Auteur
+}
+
+type Auteur {
+    id : ID
+    Nom : String
+
+}
+
+ type Query{
+    getAllLivre : [Livre],
+     livreById (id:ID) : [Livre]
+     getAllAuteurs : [Auteur]
+ }
+
+type Mutation {
+    addLivre (livre : LivreDTO) : [Livre]
+    updateLivre (id:ID, livre : LivreDTO) : [Livre]
+    deleteLivre (id:ID) : Boolean
+}
+
+input LivreDTO {
+    titre : String,
+    prix : Float,
+    auteur : String
+}
